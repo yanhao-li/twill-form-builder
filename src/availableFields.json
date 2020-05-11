@@ -1,0 +1,54 @@
+[
+  {
+    "label": "Field set",
+    "icon": "field-set"
+  },
+  {
+    "label": "Input",
+    "icon": "input"
+  },
+  {
+    "label": "WYSIWYG",
+    "icon": "wysiwyg"
+  },
+  {
+    "label": "Dropdown",
+    "icon": "dropdown"
+  },
+  {
+    "label": "Date Picker",
+    "icon": "date-picker"
+  },
+  {
+    "label": "Checkbox",
+    "icon": "checkbox"
+  },
+  {
+    "label": "Radio",
+    "icon": "radio"
+  },
+  {
+    "label": "Selector",
+    "icon": "selector"
+  },
+  {
+    "label": "Browser",
+    "icon": "browser"
+  },
+  {
+    "label": "Repeater",
+    "icon": "repeater"
+  },
+  {
+    "label": "Media Library",
+    "icon": "media-library"
+  },
+  {
+    "label": "File Library",
+    "icon": "file-library"
+  },
+  {
+    "label": "File Library",
+    "icon": "file-library"
+  }
+]

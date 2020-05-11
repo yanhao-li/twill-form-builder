@@ -12,6 +12,13 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 70px;
+}
+
 .brand {
   font-weight: 100;
   color: #8a8a8a;
