@@ -40,6 +40,7 @@ ul {
     .field__label {
       padding-left: 30px;
       font-size: 15px;
+      user-select: none;
     }
     &:hover {
       background-color: #383838;

@@ -1,11 +1,16 @@
 <template>
   <div id="form">
-    Hello Form
+    <Label text="asd" />
   </div>
 </template>
 
 <script>
-export default {}
+import Label from 'twill-ui/lib/label'
+export default {
+  components: {
+    Label,
+  },
+}
 </script>
 
 <style lang="scss" scoped>
