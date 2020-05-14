@@ -22,5 +22,6 @@ header {
 .brand {
   font-weight: 100;
   color: #8a8a8a;
+  user-select: none;
 }
 </style>

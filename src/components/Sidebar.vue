@@ -17,5 +17,6 @@ export default {
 #sidebar {
   width: 300px;
   padding: 0 20px 0 0;
+  overflow-y: scroll;
 }
 </style>

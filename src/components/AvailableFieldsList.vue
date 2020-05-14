@@ -23,10 +23,8 @@ export default {
     }
   },
   methods: {
-    cloneField() {
-      console.log('test')
-    }
-  }
+    cloneField() {},
+  },
 }
 </script>
 

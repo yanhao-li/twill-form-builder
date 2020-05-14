@@ -40,9 +40,10 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 20px 70px;
-  min-height: 1000px;
+  height: 100%;
   flex-grow: 1;
   background-color: #f2f2f2;
   color: #000;
+  overflow-y: scroll;
 }
 </style>
