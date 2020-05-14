@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <div class="content">
-      <FieldsList />
+      <Sidebar />
       <Form />
     </div>
   </div>
@@ -11,14 +11,14 @@
 <script>
 import Header from './components/Header.vue'
 import Form from './components/Form.vue'
-import FieldsList from './components/FieldsList.vue'
+import Sidebar from './components/Sidebar.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
     Form,
-    FieldsList,
+    Sidebar,
   },
 }
 </script>
