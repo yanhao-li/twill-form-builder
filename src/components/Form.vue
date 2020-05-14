@@ -1,16 +1,36 @@
 <template>
   <div id="form">
-    <Container title="Content" />
+    <Field
+      v-for="(fieldData, index) in fields"
+      :data="fieldData"
+      :key="index"
+    />
   </div>
 </template>
 
 <script>
-import Container from 'twill-ui/lib/container'
-import 'twill-ui/lib/container/style.css'
-
+import Field from './Field'
 export default {
-  components: {
-    Container,
+  components: { Field },
+  data() {
+    return {
+      fields: [
+        {
+          field: 'container',
+          label: 'Content',
+          children: [],
+        },
+        {
+          field: 'input',
+          label: 'Input',
+        },
+        {
+          field: 'input',
+          label: 'Input',
+          type: 'textarea',
+        },
+      ],
+    }
   },
 }
 </script>

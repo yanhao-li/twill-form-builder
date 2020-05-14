@@ -1,14 +1,14 @@
 <template>
   <div id="sidebar">
-    <FieldsList />
+    <AvailableFieldsList />
   </div>
 </template>
 
 <script>
-import FieldsList from './FieldsList'
+import AvailableFieldsList from './AvailableFieldsList'
 export default {
   components: {
-    FieldsList,
+    AvailableFieldsList,
   },
 }
 </script>

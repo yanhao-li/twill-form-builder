@@ -1,24 +1,32 @@
 <template>
   <ul>
-    <li v-for="(field, index) in availableFields" :key="index">
-      <div class="icon-container">
-        <Icon :name="field.icon" />
-      </div>
-      <span class="field__label">{{ field.label }}</span>
-    </li>
+    <draggable :sort="false" :clone="cloneField">
+      <li v-for="(field, index) in availableFields" :key="index">
+        <div class="icon-container">
+          <Icon :name="field.icon" />
+        </div>
+        <span class="field__label">{{ field.label }}</span>
+      </li>
+    </draggable>
   </ul>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import availableFields from '@/availableFields.json'
 import Icon from './Icon.vue'
 export default {
-  components: { Icon },
+  components: { Icon, draggable },
   data() {
     return {
       availableFields: availableFields,
     }
   },
+  methods: {
+    cloneField() {
+      console.log('test')
+    }
+  }
 }
 </script>
 
