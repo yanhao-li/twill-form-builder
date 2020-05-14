@@ -15,12 +15,8 @@
 </template>
 
 <script>
-import Container from 'twill-ui/lib/container'
-import FormItem from 'twill-ui/lib/form-item'
-import Input from 'twill-ui/lib/input'
-import 'twill-ui/lib/container/style.css'
-import 'twill-ui/lib/form-item/style.css'
-import 'twill-ui/lib/input/style.css'
+import { Container, FormItem, Input } from 'twill-ui'
+
 export default {
   components: {
     Container,
