@@ -1,6 +1,6 @@
 <template>
   <div id="form">
-    <draggable>
+    <draggable :list="fields" group="fields">
       <Field
         v-for="(fieldData, index) in fields"
         :data="fieldData"

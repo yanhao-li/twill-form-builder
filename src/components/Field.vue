@@ -2,11 +2,7 @@
   <div class="field-container">
     <template v-if="fieldType === 'container'">
       <Container :title="data.label">
-        <tfb-field
-          v-for="(field, index) in children"
-          :data="field"
-          :key="index"
-        />
+        <field v-for="(field, index) in children" :data="field" :key="index" />
       </Container>
     </template>
     <template v-else-if="fieldType === 'input'">
@@ -27,7 +23,7 @@
 import { Container, FormItem, Input } from 'twill-ui'
 
 export default {
-  name: 'tfb-field',
+  name: 'field',
   components: {
     Container,
     Input,

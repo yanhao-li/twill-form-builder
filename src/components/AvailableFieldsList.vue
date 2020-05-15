@@ -1,6 +1,11 @@
 <template>
   <ul>
-    <draggable :sort="false" :clone="cloneField">
+    <draggable
+      :sort="false"
+      :clone="cloneField"
+      :group="{ name: 'fields', pull: 'clone', put: false }"
+      v-model="availableFields"
+    >
       <li v-for="(field, index) in availableFields" :key="index">
         <div class="icon-container">
           <Icon :name="field.icon" />
@@ -23,7 +28,9 @@ export default {
     }
   },
   methods: {
-    cloneField() {},
+    cloneField(field) {
+      return field.default
+    },
   },
 }
 </script>
