@@ -1,17 +1,20 @@
 <template>
   <div id="form">
-    <Field
-      v-for="(fieldData, index) in fields"
-      :data="fieldData"
-      :key="index"
-    />
+    <draggable>
+      <Field
+        v-for="(fieldData, index) in fields"
+        :data="fieldData"
+        :key="index"
+      />
+    </draggable>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import Field from './Field'
 export default {
-  components: { Field },
+  components: { Field, draggable },
   data() {
     return {
       fields: [

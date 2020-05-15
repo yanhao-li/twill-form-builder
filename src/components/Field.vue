@@ -50,4 +50,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.field-container {
+  padding: 10px;
+
+  &:hover {
+    border: 1px dashed #d2bef4;
+  }
+}
+</style>
