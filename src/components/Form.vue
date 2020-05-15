@@ -21,25 +21,7 @@ export default {
         {
           field: 'container',
           label: 'Content',
-          children: [
-            {
-              field: 'input',
-              label: 'Input',
-              placeholder: 'Please enter the content here',
-              note: 'test note',
-            },
-          ],
-        },
-        {
-          field: 'input',
-          label: 'Input',
-          placeholder: 'Please enter the content here',
-          note: 'test note',
-        },
-        {
-          field: 'input',
-          label: 'Input',
-          type: 'textarea',
+          children: [],
         },
       ],
     }

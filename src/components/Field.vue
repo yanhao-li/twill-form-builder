@@ -1,8 +1,25 @@
 <template>
-  <div class="field-container">
+  <div
+    class="field--container"
+    :class="{
+      'field--container__hovering': hovering,
+    }"
+    @mouseenter="hovering = true"
+    @mouseleave="hovering = false"
+  >
     <template v-if="fieldType === 'container'">
       <Container :title="data.label">
-        <field v-for="(field, index) in children" :data="field" :key="index" />
+        <draggable
+          :list="children"
+          group="fields"
+          style="min-height: 100px; width: 100%;"
+        >
+          <field
+            v-for="(field, index) in children"
+            :data="field"
+            :key="index"
+          />
+        </draggable>
       </Container>
     </template>
     <template v-else-if="fieldType === 'input'">
@@ -16,10 +33,20 @@
         />
       </FormItem>
     </template>
+    <div class="field__control" v-if="hovering">
+      <button class="field__control__btn">
+        <Icon name="setting" />
+      </button>
+      <button class="field__control__btn">
+        <Icon name="trash" />
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
+import Icon from './Icon'
 import { Container, FormItem, Input } from 'twill-ui'
 
 export default {
@@ -28,6 +55,13 @@ export default {
     Container,
     Input,
     FormItem,
+    draggable,
+    Icon,
+  },
+  data() {
+    return {
+      hovering: false,
+    }
   },
   props: {
     data: {
@@ -47,11 +81,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.field-container {
+.field--container {
+  position: relative;
   padding: 10px;
+}
 
-  &:hover {
-    border: 1px dashed #d2bef4;
+.field--container__hovering {
+  border: 1px dashed #d2bef4;
+}
+
+.field__control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  .field__control__btn {
+    background-color: #f0e9fb;
+    outline: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    margin: 4px 4px 0 0;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }
 </style>
