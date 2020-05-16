@@ -1,6 +1,6 @@
 <template>
   <div class="setting__list">
-    <h1 class="header">{{ field.label }} properties</h1>
+    <h1 class="header">{{ field ? field.label : '' }} properties</h1>
     <FormItem label="test">
       <Input />
     </FormItem>
@@ -50,7 +50,9 @@ export default {
 
 <style lang="scss" scoped>
 .setting__list {
-  position: relative;
+  // temp workaround for fixed+transform bug: https://stackoverflow.com/questions/2637058/positions-fixed-doesnt-work-when-using-webkit-transform
+  transform: translate(0);
+  position: absolute;
   height: 100%;
   width: 300px;
 
@@ -65,8 +67,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  bottom: 0;
+  bottom: 0px;
   width: 300px;
-  margin-bottom: 20px;
 }
 </style>

@@ -48,6 +48,11 @@ export default {
 
 <style lang="scss" scoped>
 ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300px;
   padding: 0 0 100px 0;
   margin: 0;
   list-style: none;
