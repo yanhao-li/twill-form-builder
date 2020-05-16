@@ -1,9 +1,12 @@
 <template>
   <div class="setting__list">
     <h1 class="header">{{ field ? field.label : '' }} properties</h1>
-    <FormItem label="Label" class="dark">
-      <Input />
-    </FormItem>
+    <SettingField
+      v-for="(setting, index) in field.settings"
+      :key="index"
+      :type="setting.type"
+      :label="setting.label"
+    />
     <div class="setting__list__footer">
       <Button
         type="primary"
@@ -23,14 +26,14 @@
 </template>
 
 <script>
-import { Button, FormItem, Input } from 'twill-ui'
+import { Button } from 'twill-ui'
+import SettingField from './SettingField'
 import { getAvailableFieldByFieldName } from '@/availableFields'
 
 export default {
   components: {
     Button,
-    FormItem,
-    Input,
+    SettingField,
   },
   methods: {
     exitFieldSettingMode() {
@@ -43,6 +46,9 @@ export default {
     },
     field() {
       return getAvailableFieldByFieldName(this.fieldSettingMode.field)
+    },
+    fieldSettings() {
+      return this.field.settings
     },
   },
 }
@@ -69,20 +75,5 @@ export default {
   justify-content: space-between;
   bottom: 0px;
   width: 300px;
-}
-
-.dark {
-  ::v-deep {
-    .input__label {
-      color: #fff;
-    }
-    .input__field {
-      background-color: #222222;
-      border: 1px solid #4e4e4e;
-      input {
-        color: #fff;
-      }
-    }
-  }
 }
 </style>

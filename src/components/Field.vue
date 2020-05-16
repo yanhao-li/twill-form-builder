@@ -81,6 +81,7 @@ export default {
   methods: {
     onDelete() {
       this.$emit('delete', this.data.id)
+      this.$store.commit('setFieldSettingMode', false)
     },
     toggleSetting() {
       if (this.$store.state.fieldSettingMode === false) {

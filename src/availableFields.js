@@ -7,6 +7,13 @@ const availableFields = [
       label: 'Content',
       children: [],
     },
+    settings: [
+      {
+        type: 'input',
+        label: 'Label',
+        model: 'label',
+      },
+    ],
   },
   {
     label: 'Input',
@@ -15,6 +22,23 @@ const availableFields = [
       field: 'input',
       label: 'Content',
     },
+    settings: [
+      {
+        type: 'input',
+        label: 'Label',
+        model: 'label',
+      },
+      {
+        type: 'input',
+        label: 'Name',
+        model: 'name',
+      },
+      {
+        type: 'input',
+        label: 'Character count',
+        model: 'maxlength',
+      },
+    ],
   },
   {
     label: 'WYSIWYG',
