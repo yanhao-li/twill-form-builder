@@ -51,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 .setting__list {
   // temp workaround for fixed+transform bug: https://stackoverflow.com/questions/2637058/positions-fixed-doesnt-work-when-using-webkit-transform
-  transform: translate(0);
+  transform: translateX(0);
   position: absolute;
   height: 100%;
   width: 300px;
