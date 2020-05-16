@@ -76,10 +76,11 @@ export default {
       this.$emit('delete', this.data.id)
     },
     toggleSetting() {
-      this.$store.commit(
-        'setFieldSettingMode',
-        !this.$store.state.fieldSettingMode,
-      )
+      if (this.$store.state.fieldSettingMode === false) {
+        this.$store.commit('setFieldSettingMode', this.data)
+      } else {
+        this.$store.commit('setFieldSettingMode', false)
+      }
     },
   },
 }

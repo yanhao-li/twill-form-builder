@@ -22,7 +22,7 @@
 
 <script>
 import draggable from 'vuedraggable'
-import availableFields from '@/availableFields.json'
+import availableFields from '@/availableFields'
 import Icon from './Icon.vue'
 import shortid from 'shortid'
 export default {

@@ -9,8 +9,8 @@ export default new Vuex.Store({
     fieldSettingMode: false,
   },
   mutations: {
-    setFieldSettingMode(state, bool) {
-      state.fieldSettingMode = bool
+    setFieldSettingMode(state, field) {
+      state.fieldSettingMode = field
     },
   },
 })

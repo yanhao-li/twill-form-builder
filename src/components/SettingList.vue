@@ -1,6 +1,6 @@
 <template>
   <div class="setting__list">
-    <h1>Title</h1>
+    <h1 class="header">{{ field.label }} properties</h1>
     <FormItem label="test">
       <Input />
     </FormItem>
@@ -24,6 +24,8 @@
 
 <script>
 import { Button, FormItem, Input } from 'twill-ui'
+import { getAvailableFieldByFieldName } from '@/availableFields'
+
 export default {
   components: {
     Button,
@@ -35,6 +37,14 @@ export default {
       this.$store.commit('setFieldSettingMode', false)
     },
   },
+  computed: {
+    fieldSettingMode() {
+      return this.$store.state.fieldSettingMode
+    },
+    field() {
+      return getAvailableFieldByFieldName(this.fieldSettingMode.field)
+    },
+  },
 }
 </script>
 
@@ -43,6 +53,11 @@ export default {
   position: relative;
   height: 100%;
   width: 100%;
+
+  .header {
+    font-weight: normal;
+    font-size: 15px;
+  }
 }
 
 .setting__list__footer {
