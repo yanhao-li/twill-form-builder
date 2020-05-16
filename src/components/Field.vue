@@ -9,7 +9,7 @@
   >
     <template v-if="fieldType === 'container'">
       <Container :title="data.label">
-        <Droppable :fields="children" />
+        <Droppable v-model="children" />
       </Container>
     </template>
     <template v-else-if="fieldType === 'input'">
@@ -62,8 +62,13 @@ export default {
     fieldType() {
       return this.data.field
     },
-    children() {
-      return this.data.children ? this.data.children : []
+    children: {
+      get() {
+        return this.data.children ? this.data.children : []
+      },
+      set(newValue) {
+        this.data.children = newValue
+      },
     },
   },
   methods: {

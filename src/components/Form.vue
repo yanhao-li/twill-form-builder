@@ -1,6 +1,6 @@
 <template>
   <div id="form">
-    <Droppable :fields="fields" />
+    <Droppable v-model="fields" />
   </div>
 </template>
 

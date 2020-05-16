@@ -12,6 +12,10 @@
 <script>
 import draggable from 'vuedraggable'
 export default {
+  model: {
+    prop: 'fields',
+    event: 'update',
+  },
   components: {
     Field: () => import('./Field'),
     draggable,
@@ -24,7 +28,10 @@ export default {
   },
   methods: {
     deleteField(id) {
-      this.data.children = this.data.children.filter((field) => field.id !== id)
+      this.$emit(
+        'update',
+        this.fields.filter((field) => field.id !== id),
+      )
     },
   },
 }
