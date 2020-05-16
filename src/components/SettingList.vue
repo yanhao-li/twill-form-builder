@@ -57,10 +57,12 @@ export default {
 <style lang="scss" scoped>
 .setting__list {
   // temp workaround for fixed+transform bug: https://stackoverflow.com/questions/2637058/positions-fixed-doesnt-work-when-using-webkit-transform
-  transform: translateX(0);
   position: absolute;
   height: 100%;
   width: 300px;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+  box-sizing: border-box;
 
   .header {
     font-weight: normal;
@@ -72,8 +74,9 @@ export default {
   position: fixed;
   display: flex;
   flex-direction: row;
+  background-color: #161616;
   justify-content: space-between;
-  bottom: 0px;
+  bottom: 20px;
   width: 300px;
 }
 </style>

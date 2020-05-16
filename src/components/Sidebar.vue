@@ -33,7 +33,7 @@ export default {
   position: relative;
   width: 300px;
   padding: 0 20px 0 0;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .setting__list-enter-active,
