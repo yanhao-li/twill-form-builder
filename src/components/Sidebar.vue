@@ -1,6 +1,6 @@
 <template>
   <div id="sidebar">
-    <SettingList v-if="settingMode" />
+    <SettingList v-if="fieldSettingMode" />
     <AvailableFieldsList v-else />
   </div>
 </template>
@@ -14,8 +14,8 @@ export default {
     SettingList,
   },
   computed: {
-    settingMode() {
-      return this.$store.state.settingMode
+    fieldSettingMode() {
+      return this.$store.state.fieldSettingMode
     },
   },
 }

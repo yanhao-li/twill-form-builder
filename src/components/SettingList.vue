@@ -13,7 +13,7 @@
       </Button>
       <Button
         type="secondary"
-        @click="exitSettingMode"
+        @click="exitFieldSettingMode"
         style="flex-grow: 1; background-color: #393939; border: none;"
       >
         Cancel
@@ -31,8 +31,8 @@ export default {
     Input,
   },
   methods: {
-    exitSettingMode() {
-      this.$store.commit('setSettingMode', false)
+    exitFieldSettingMode() {
+      this.$store.commit('setFieldSettingMode', false)
     },
   },
 }

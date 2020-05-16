@@ -6,11 +6,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     fields: [],
-    settingMode: false,
+    fieldSettingMode: false,
   },
   mutations: {
-    setSettingMode(state, bool) {
-      state.settingMode = bool
+    setFieldSettingMode(state, bool) {
+      state.fieldSettingMode = bool
     },
   },
 })
