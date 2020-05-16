@@ -23,6 +23,7 @@
         />
       </FormItem>
     </template>
+    <template v-else> WIP: {{ data.field }} </template>
     <div class="field__control" v-if="hovering">
       <button class="field__control__btn" @click.stop.prevent="toggleSetting">
         <Icon name="setting" />

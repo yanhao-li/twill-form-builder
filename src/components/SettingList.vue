@@ -52,7 +52,7 @@ export default {
 .setting__list {
   position: relative;
   height: 100%;
-  width: 100%;
+  width: 300px;
 
   .header {
     font-weight: normal;
@@ -61,11 +61,12 @@ export default {
 }
 
 .setting__list__footer {
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 300px;
+  margin-bottom: 20px;
 }
 </style>
