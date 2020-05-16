@@ -8681,10 +8681,10 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twill-ui@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/twill-ui/-/twill-ui-0.1.0.tgz#4f25cbb21999eda61d6f2af9b9be80ca2c3f0076"
-  integrity sha512-6BsGYPMX65X+mUsej6J/7RqyT6V2rJruxhax4C57m+2mjtIDiPEVA4g/SBvfJ6LCKfLvuoIp1aqvKsVGP5WQOA==
+twill-ui@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/twill-ui/-/twill-ui-0.2.0.tgz#9494cc6b41eb229705970458b9f6b0fed977125e"
+  integrity sha512-VUMa39+/4LMtnBOez35snFmrSN8ZzvBV27P2Nr+owpj+hfXiRHTBnKycBkoSwfxh9mw34kJIZk+Ex+YErOtRYQ==
   dependencies:
     "@testing-library/jest-dom" "^5.5.0"
     "@testing-library/vue" "^5.0.2"
