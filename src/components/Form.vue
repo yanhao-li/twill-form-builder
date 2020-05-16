@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import shortid from 'shortid'
 import Droppable from './Droppable'
 export default {
   components: {
@@ -13,21 +12,7 @@ export default {
   },
   data() {
     return {
-      fields: [
-        {
-          id: shortid.generate(),
-          field: 'container',
-          label: 'Content',
-          children: [
-            {
-              id: shortid.generate(),
-              field: 'container',
-              label: 'Content',
-              children: [],
-            },
-          ],
-        },
-      ],
+      fields: [],
     }
   },
   methods: {},

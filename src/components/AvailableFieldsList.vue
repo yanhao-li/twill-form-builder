@@ -34,10 +34,13 @@ export default {
   },
   methods: {
     cloneField(field) {
-      return {
-        id: shortid.generate(),
-        ...field.default,
-      }
+      // temp solution for deep clone
+      return JSON.parse(
+        JSON.stringify({
+          id: shortid.generate(),
+          ...field.default,
+        }),
+      )
     },
   },
 }
