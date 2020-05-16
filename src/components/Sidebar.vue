@@ -1,14 +1,22 @@
 <template>
   <div id="sidebar">
-    <AvailableFieldsList />
+    <SettingList v-if="settingMode" />
+    <AvailableFieldsList v-else />
   </div>
 </template>
 
 <script>
 import AvailableFieldsList from './AvailableFieldsList'
+import SettingList from './SettingList'
 export default {
+  data() {
+    return {
+      settingMode: true,
+    }
+  },
   components: {
     AvailableFieldsList,
+    SettingList,
   },
 }
 </script>
