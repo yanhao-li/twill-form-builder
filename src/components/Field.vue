@@ -4,22 +4,12 @@
     :class="{
       'field--container__hovering': hovering,
     }"
-    @mouseenter="hovering = true"
-    @mouseleave="hovering = false"
+    @mouseover.stop="hovering = true"
+    @mouseleave.stop="hovering = false"
   >
     <template v-if="fieldType === 'container'">
       <Container :title="data.label">
-        <draggable
-          :list="children"
-          group="fields"
-          style="min-height: 100px; width: 100%;"
-        >
-          <field
-            v-for="(field, index) in children"
-            :data="field"
-            :key="index"
-          />
-        </draggable>
+        <Droppable :fields="children" />
       </Container>
     </template>
     <template v-else-if="fieldType === 'input'">
@@ -37,7 +27,7 @@
       <button class="field__control__btn">
         <Icon name="setting" />
       </button>
-      <button class="field__control__btn">
+      <button class="field__control__btn" @click.stop.prevent="onDelete">
         <Icon name="trash" />
       </button>
     </div>
@@ -45,17 +35,16 @@
 </template>
 
 <script>
-import draggable from 'vuedraggable'
 import Icon from './Icon'
+import Droppable from './Droppable'
 import { Container, FormItem, Input } from 'twill-ui'
 
 export default {
-  name: 'field',
   components: {
+    Droppable,
     Container,
     Input,
     FormItem,
-    draggable,
     Icon,
   },
   data() {
@@ -77,6 +66,11 @@ export default {
       return this.data.children ? this.data.children : []
     },
   },
+  methods: {
+    onDelete() {
+      this.$emit('delete', this.data.id)
+    },
+  },
 }
 </script>
 
@@ -88,6 +82,10 @@ export default {
 
 .field--container__hovering {
   border: 1px dashed #d2bef4;
+}
+
+.field--container.sortable-ghost {
+  opacity: 0.3;
 }
 
 .field__control {

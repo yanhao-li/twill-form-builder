@@ -7,8 +7,8 @@
       v-model="availableFields"
     >
       <li
-        v-for="(field, index) in availableFields"
-        :key="index"
+        v-for="field in availableFields"
+        :key="field.default.field"
         class="available-field-item"
       >
         <div class="icon-container">
@@ -24,6 +24,7 @@
 import draggable from 'vuedraggable'
 import availableFields from '@/availableFields.json'
 import Icon from './Icon.vue'
+import shortid from 'shortid'
 export default {
   components: { Icon, draggable },
   data() {
@@ -33,7 +34,10 @@ export default {
   },
   methods: {
     cloneField(field) {
-      return field.default
+      return {
+        id: shortid.generate(),
+        ...field.default,
+      }
     },
   },
 }

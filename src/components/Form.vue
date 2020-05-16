@@ -1,31 +1,36 @@
 <template>
   <div id="form">
-    <draggable :list="fields" group="fields">
-      <Field
-        v-for="(fieldData, index) in fields"
-        :data="fieldData"
-        :key="index"
-      />
-    </draggable>
+    <Droppable :fields="fields" />
   </div>
 </template>
 
 <script>
-import draggable from 'vuedraggable'
-import Field from './Field'
+import shortid from 'shortid'
+import Droppable from './Droppable'
 export default {
-  components: { Field, draggable },
+  components: {
+    Droppable,
+  },
   data() {
     return {
       fields: [
         {
+          id: shortid.generate(),
           field: 'container',
           label: 'Content',
-          children: [],
+          children: [
+            {
+              id: shortid.generate(),
+              field: 'container',
+              label: 'Content',
+              children: [],
+            },
+          ],
         },
       ],
     }
   },
+  methods: {},
 }
 </script>
 
