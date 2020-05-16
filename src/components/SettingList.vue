@@ -28,13 +28,13 @@ export default {
   components: {
     Button,
     FormItem,
-    Input
+    Input,
   },
   methods: {
     exitSettingMode() {
-      console.log('exit')
-    }
-  }
+      this.$store.commit('setSettingMode', false)
+    },
+  },
 }
 </script>
 

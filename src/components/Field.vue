@@ -24,7 +24,7 @@
       </FormItem>
     </template>
     <div class="field__control" v-if="hovering">
-      <button class="field__control__btn">
+      <button class="field__control__btn" @click.stop.prevent="toggleSetting">
         <Icon name="setting" />
       </button>
       <button class="field__control__btn" @click.stop.prevent="onDelete">
@@ -74,6 +74,9 @@ export default {
   methods: {
     onDelete() {
       this.$emit('delete', this.data.id)
+    },
+    toggleSetting() {
+      this.$store.commit('setSettingMode', !this.$store.state.settingMode)
     },
   },
 }

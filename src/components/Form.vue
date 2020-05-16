@@ -15,6 +15,11 @@ export default {
       fields: [],
     }
   },
+  // computed: {
+  //   fields() {
+  //     return this.$store.state.fields
+  //   }
+  // },
   methods: {},
 }
 </script>

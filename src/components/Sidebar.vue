@@ -9,14 +9,14 @@
 import AvailableFieldsList from './AvailableFieldsList'
 import SettingList from './SettingList'
 export default {
-  data() {
-    return {
-      settingMode: true,
-    }
-  },
   components: {
     AvailableFieldsList,
     SettingList,
+  },
+  computed: {
+    settingMode() {
+      return this.$store.state.settingMode
+    },
   },
 }
 </script>
