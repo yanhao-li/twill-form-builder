@@ -9,7 +9,7 @@
   >
     <template v-if="fieldType === 'container'">
       <Container :title="data.label">
-        <Droppable v-model="children" />
+        <Droppable :fields.sync="children" />
       </Container>
     </template>
     <template v-else-if="fieldType === 'input'">
@@ -60,6 +60,9 @@ export default {
     },
   },
   computed: {
+    id() {
+      return this.data.id
+    },
     fieldType() {
       return this.data.field
     },
@@ -67,8 +70,11 @@ export default {
       get() {
         return this.data.children ? this.data.children : []
       },
-      set(newValue) {
-        this.data.children = newValue
+      set(newChildren) {
+        this.onUpdate({
+          ...this.data,
+          children: newChildren,
+        })
       },
     },
   },
@@ -82,6 +88,9 @@ export default {
       } else {
         this.$store.commit('setFieldSettingMode', false)
       }
+    },
+    onUpdate(val) {
+      this.$emit('update', this.id, val)
     },
   },
 }

@@ -12,5 +12,8 @@ export default new Vuex.Store({
     setFieldSettingMode(state, field) {
       state.fieldSettingMode = field
     },
+    updateFields(state, fields) {
+      state.fields = fields
+    },
   },
 })

@@ -1,6 +1,6 @@
 <template>
   <div id="form">
-    <Droppable v-model="fields" />
+    <Droppable :fields.sync="fields" />
   </div>
 </template>
 
@@ -10,16 +10,16 @@ export default {
   components: {
     Droppable,
   },
-  data() {
-    return {
-      fields: [],
-    }
+  computed: {
+    fields: {
+      get() {
+        return this.$store.state.fields
+      },
+      set(fields) {
+        return this.$store.commit('updateFields', fields)
+      },
+    },
   },
-  // computed: {
-  //   fields() {
-  //     return this.$store.state.fields
-  //   }
-  // },
   methods: {},
 }
 </script>

@@ -1,11 +1,17 @@
 <template>
-  <draggable :list="fields" group="fields" class="droppable">
+  <draggable
+    :value="fields"
+    @input="(val) => this.$emit('update:fields', val)"
+    group="fields"
+    class="droppable"
+  >
     <transition-group name="field-list" class="droppable">
       <Field
         v-for="field in fields"
         :data="field"
         :key="field.id"
         @delete="deleteField"
+        @update="updateField"
       />
     </transition-group>
   </draggable>
@@ -14,11 +20,8 @@
 <script>
 import draggable from 'vuedraggable'
 export default {
-  model: {
-    prop: 'fields',
-    event: 'update',
-  },
   components: {
+    // circular reference: https://vuejs.org/v2/guide/components-edge-cases.html#Circular-References-Between-Components
     Field: () => import('./Field'),
     draggable,
   },
@@ -31,9 +34,19 @@ export default {
   methods: {
     deleteField(id) {
       this.$emit(
-        'update',
+        'update:fields',
         this.fields.filter((field) => field.id !== id),
       )
+    },
+    updateField(id, newField) {
+      const newFields = this.fields.map((field) => {
+        if (field.id === id) {
+          return newField
+        }
+        return field
+      })
+
+      this.$emit('update:fields', newFields)
     },
   },
 }
