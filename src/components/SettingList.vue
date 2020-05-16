@@ -1,7 +1,7 @@
 <template>
   <div class="setting__list">
     <h1 class="header">{{ field ? field.label : '' }} properties</h1>
-    <FormItem label="test">
+    <FormItem label="Label" class="dark">
       <Input />
     </FormItem>
     <div class="setting__list__footer">
@@ -69,5 +69,20 @@ export default {
   justify-content: space-between;
   bottom: 0px;
   width: 300px;
+}
+
+.dark {
+  ::v-deep {
+    .input__label {
+      color: #fff;
+    }
+    .input__field {
+      background-color: #222222;
+      border: 1px solid #4e4e4e;
+      input {
+        color: #fff;
+      }
+    }
+  }
 }
 </style>

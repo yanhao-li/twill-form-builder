@@ -5,8 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    fields: [],
-    fieldSettingMode: false,
+    fields: [
+      {
+        id: 123,
+        field: 'container',
+        label: 'Content',
+        children: [],
+      },
+    ],
+    fieldSettingMode: {
+      id: 123,
+      field: 'container',
+      label: 'Content',
+      children: [],
+    },
   },
   mutations: {
     setFieldSettingMode(state, field) {
