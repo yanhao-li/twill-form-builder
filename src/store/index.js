@@ -22,6 +22,12 @@ export default new Vuex.Store({
   },
   mutations: {
     setFieldSettingMode(state, field) {
+      if (field !== false) {
+        field = {
+          ...field,
+        }
+      }
+
       state.fieldSettingMode = field
     },
     updateFields(state, fields) {

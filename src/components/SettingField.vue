@@ -40,7 +40,10 @@ export default {
         return this.field[this.model]
       },
       set(val) {
-        console.log(val)
+        this.$store.commit('setFieldSettingMode', {
+          ...this.field,
+          [this.model]: val,
+        })
       },
     },
   },
