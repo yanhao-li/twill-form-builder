@@ -1,11 +1,13 @@
 <template>
   <div class="setting__list">
-    <h1 class="header">{{ field ? field.label : '' }} properties</h1>
+    <h1 class="header">
+      {{ fieldPrototype ? fieldPrototype.label : '' }} properties
+    </h1>
     <SettingField
-      v-for="(setting, index) in field.settings"
+      v-for="(setting, index) in fieldPrototype.settings"
       :key="index"
-      :type="setting.type"
-      :label="setting.label"
+      :field="field"
+      :setting="setting"
     />
     <div class="setting__list__footer">
       <Button
@@ -44,8 +46,11 @@ export default {
     fieldSettingMode() {
       return this.$store.state.fieldSettingMode
     },
-    field() {
+    fieldPrototype() {
       return getAvailableFieldByFieldName(this.fieldSettingMode.field)
+    },
+    field() {
+      return this.fieldSettingMode
     },
     fieldSettings() {
       return this.field.settings

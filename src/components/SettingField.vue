@@ -2,7 +2,7 @@
   <div class="setting__field">
     <template v-if="type === 'input'">
       <FormItem :label="label">
-        <Input />
+        <Input v-model="value" />
       </FormItem>
     </template>
   </div>
@@ -16,13 +16,32 @@ export default {
     Input,
   },
   props: {
-    type: {
-      type: String,
+    field: {
+      type: Object,
       required: true,
     },
-    label: {
-      type: String,
+    setting: {
+      type: Object,
       required: true,
+    },
+  },
+  computed: {
+    type() {
+      return this.setting.type
+    },
+    label() {
+      return this.setting.label
+    },
+    model() {
+      return this.setting.model
+    },
+    value: {
+      get() {
+        return this.field[this.model]
+      },
+      set(val) {
+        console.log(val)
+      },
     },
   },
 }
