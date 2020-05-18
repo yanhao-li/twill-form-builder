@@ -25,10 +25,10 @@
     </template>
     <template v-else> WIP: {{ data.field }} </template>
     <div class="field__control" v-if="hovering">
-      <button class="field__control__btn" @click.stop.prevent="toggleSetting">
+      <button class="field__control__btn" @click.stop.prevent="onClickSetting">
         <Icon name="setting" />
       </button>
-      <button class="field__control__btn" @click.stop.prevent="onDelete">
+      <button class="field__control__btn" @click.stop.prevent="onClickDelete">
         <Icon name="trash" />
       </button>
     </div>
@@ -79,15 +79,19 @@ export default {
     },
   },
   methods: {
-    onDelete() {
+    onClickDelete() {
       this.$emit('delete', this.data.id)
       this.$store.commit('setFieldSettingMode', false)
     },
-    toggleSetting() {
-      if (this.$store.state.fieldSettingMode === false) {
-        this.$store.commit('setFieldSettingMode', this.data)
-      } else {
+    onClickSetting() {
+      const fieldSettingMode = this.$store.state.fieldSettingMode
+      if (
+        Object.prototype.hasOwnProperty.call(fieldSettingMode, 'id') &&
+        fieldSettingMode.id === this.id
+      ) {
         this.$store.commit('setFieldSettingMode', false)
+      } else {
+        this.$store.commit('setFieldSettingMode', this.data)
       }
     },
     onUpdate(val) {
