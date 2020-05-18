@@ -20,13 +20,27 @@ const availableFields = [
     icon: 'input',
     default: {
       field: 'input',
-      label: 'Content',
+      label: 'Text',
+      placeholder: 'Enter text here',
+      note: '',
+      name: '',
+      maxlength: '',
     },
     settings: [
       {
         type: 'input',
         label: 'Label',
         model: 'label',
+      },
+      {
+        type: 'input',
+        label: 'Placeholder',
+        model: 'placeholder',
+      },
+      {
+        type: 'input',
+        label: 'Note',
+        model: 'note',
       },
       {
         type: 'input',

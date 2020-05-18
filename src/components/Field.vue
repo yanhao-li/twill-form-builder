@@ -13,13 +13,12 @@
       </Container>
     </template>
     <template v-else-if="fieldType === 'input'">
-      <FormItem
-        label="Default Input"
-        note="Non urna aliquam pulvinar purus nascetur scelerisque"
-      >
+      <FormItem :label="data.label" :note="data.note">
         <Input
+          v-model="inputValue"
           :placeholder="data.placeholder"
           :type="data.type ? data.type : 'text'"
+          :maxlength="parseInt(data.maxlength)"
         />
       </FormItem>
     </template>
@@ -50,6 +49,7 @@ export default {
   },
   data() {
     return {
+      inputValue: '',
       hovering: false,
     }
   },
