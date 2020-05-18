@@ -5,33 +5,36 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    fields: [
-      {
-        id: 123,
-        field: 'container',
-        label: 'Content',
-        children: [],
-      },
-    ],
-    fieldSettingMode: {
-      id: 123,
-      field: 'container',
-      label: 'Content',
-      children: [],
-    },
+    fields: [],
+    fieldSettingMode: false,
   },
   mutations: {
     setFieldSettingMode(state, field) {
       if (field !== false) {
-        field = {
-          ...field,
-        }
+        this.commit('updateField', field)
       }
 
       state.fieldSettingMode = field
     },
-    updateFields(state, fields) {
-      state.fields = fields
+    updateFields(state, newFields) {
+      state.fields = newFields
+    },
+    updateField(state, newField) {
+      state.fields = backtracking(state.fields, newField)
     },
   },
 })
+
+const backtracking = (fields, newField) => {
+  return fields.map((field) => {
+    if (field.id === newField.id) {
+      return newField
+    }
+
+    if (Object.prototype.hasOwnProperty.call(field, 'children')) {
+      field.children = backtracking(field.children, newField)
+    }
+
+    return field
+  })
+}

@@ -1,10 +1,5 @@
 <template>
-  <draggable
-    :value="fields"
-    @input="(val) => this.$emit('update:fields', val)"
-    group="fields"
-    class="droppable"
-  >
+  <draggable :value="fields" @input="onUpdate" group="fields" class="droppable">
     <transition-group name="field-list" class="droppable">
       <Field
         v-for="field in fields"
@@ -32,6 +27,9 @@ export default {
     },
   },
   methods: {
+    onUpdate(newFields) {
+      this.$emit('update:fields', newFields)
+    },
     deleteField(id) {
       this.$emit(
         'update:fields',
