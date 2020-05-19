@@ -6,6 +6,7 @@
 
 <script>
 import Droppable from './Droppable'
+import { encodeJSON, updateUrlQuery } from '@/utils'
 export default {
   components: {
     Droppable,
@@ -18,6 +19,12 @@ export default {
       set(fields) {
         return this.$store.commit('updateFields', fields)
       },
+    },
+  },
+  watch: {
+    // update url when fields get changed
+    fields(newFields) {
+      updateUrlQuery(encodeJSON(newFields))
     },
   },
   methods: {},

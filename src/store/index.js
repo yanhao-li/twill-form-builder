@@ -19,6 +19,7 @@ export default new Vuex.Store({
     updateFields(state, newFields) {
       state.fields = newFields
     },
+    // Find and replace a field with the new field data
     updateField(state, newField) {
       state.fields = backtracking(state.fields, newField)
     },
