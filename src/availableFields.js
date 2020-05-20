@@ -58,7 +58,7 @@ const availableFields = [
     label: 'WYSIWYG',
     icon: 'wysiwyg',
     default: {
-      field: 'wysityg',
+      field: 'wysiwyg',
       label: 'Content',
     },
   },

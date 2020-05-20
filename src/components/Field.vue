@@ -7,11 +7,14 @@
     @mouseover.stop="hovering = true"
     @mouseleave.stop="hovering = false"
   >
+    <!-- Container -->
     <template v-if="fieldType === 'container'">
       <Container :title="data.label">
         <Droppable :fields.sync="children" />
       </Container>
     </template>
+
+    <!-- Input -->
     <template v-else-if="fieldType === 'input'">
       <FormItem :label="data.label" :note="data.note">
         <Input
@@ -22,7 +25,35 @@
         />
       </FormItem>
     </template>
+
+    <!-- Checkbox -->
+    <template v-else-if="fieldType === 'checkbox'">
+      <Checkbox v-model="inputValue" label="Checkbox" />
+    </template>
+
+    <!-- Radio -->
+    <template v-else-if="fieldType === 'radio'">
+      <Radio v-model="inputValue" label="Male" value="male" />
+    </template>
+
+    <!-- WYSIWYG -->
+    <template v-else-if="fieldType === 'wysiwyg'">
+      <Editor
+        placeholder="'write text ehre'"
+        :maxlength="200"
+        :showCounter="false"
+        :edit-source="true"
+        initial-value="preset text"
+      />
+    </template>
+
+    <!-- Date Picker -->
+    <template v-else-if="fieldType === 'date-picker'">
+      <DatePicker placeholder="Select the date" />
+    </template>
+
     <template v-else> WIP: {{ data.field }} </template>
+
     <div class="field__control" v-if="hovering">
       <button class="field__control__btn" @click.stop.prevent="onClickSetting">
         <Icon name="setting" />
@@ -37,7 +68,15 @@
 <script>
 import Icon from './Icon'
 import Droppable from './Droppable'
-import { Container, FormItem, Input } from 'twill-ui'
+import {
+  Container,
+  FormItem,
+  Input,
+  Checkbox,
+  Radio,
+  Editor,
+  DatePicker,
+} from 'twill-ui'
 
 export default {
   components: {
@@ -46,6 +85,10 @@ export default {
     Input,
     FormItem,
     Icon,
+    Checkbox,
+    Radio,
+    Editor,
+    DatePicker,
   },
   data() {
     return {
