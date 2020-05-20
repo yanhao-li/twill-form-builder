@@ -56,10 +56,10 @@
     <template v-else> WIP: {{ data.field }} </template>
 
     <div class="field__control" v-if="hovering">
-      <button class="field__control__btn" @click.stop.prevent="onClickSetting">
+      <button class="field__control__btn" @click.stop="onClickSetting">
         <Icon name="setting" />
       </button>
-      <button class="field__control__btn" @click.stop.prevent="onClickDelete">
+      <button class="field__control__btn" @click.stop="onClickDelete">
         <Icon name="trash" />
       </button>
     </div>

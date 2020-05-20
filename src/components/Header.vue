@@ -2,7 +2,10 @@
   <header>
     <h1 class="brand">
       <img alt="Twill logo" src="../assets/logo.svg" />
-      Form Builder
+      <Label
+        text="Form Builder"
+        style="background-color: #757575; color: #fff;"
+      />
     </h1>
     <div class="control">
       <Button class="share-btn" @click="onClickShare">
@@ -16,13 +19,14 @@
 <script>
 import Icon from './Icon'
 import { getCurrentUrl } from '@/utils'
-import { Button } from 'twill-ui'
+import { Button, Label } from 'twill-ui'
 import { Notification } from 'twill-ui'
 
 export default {
   components: {
     Button,
     Icon,
+    Label,
   },
   methods: {
     onClickShare() {
