@@ -28,6 +28,7 @@ export default {
   },
   methods: {
     onUpdate(newFields) {
+      console.log('on-update: ', newFields)
       this.$emit('update:fields', newFields)
     },
     deleteField(id) {
@@ -37,6 +38,7 @@ export default {
       )
     },
     updateField(id, newField) {
+      console.log('update-field: ', newField)
       const newFields = this.fields.map((field) => {
         if (field.id === id) {
           return newField
