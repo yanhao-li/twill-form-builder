@@ -8,9 +8,13 @@
       />
     </h1>
     <div class="control">
-      <Button class="share-btn" @click="onClickShare">
+      <Button class="control-btn" @click="onClickShare">
         <Icon name="link" />
         Share
+      </Button>
+      <Button class="control-btn" @click="$store.commit('toggleSidebar')">
+        <Icon :name="showSidebar ? 'preview' : 'editor'" />
+        {{ showSidebar ? 'Preview' : 'Editor' }}
       </Button>
     </div>
   </header>
@@ -27,6 +31,11 @@ export default {
     Button,
     Icon,
     Label,
+  },
+  computed: {
+    showSidebar() {
+      return this.$store.state.showSidebar
+    },
   },
   methods: {
     onClickShare() {
@@ -54,15 +63,27 @@ header {
 }
 
 .control {
+  display: flex;
+  flex-direction: row;
   margin-left: auto;
 }
 
-.share-btn {
+.control-btn {
   display: flex;
   align-items: center;
   height: 36px;
   background-color: #6a26d9;
   border: none;
+  margin-right: 12px;
+
+  &:focus {
+    background-color: #6a26d9;
+  }
+
+  &:hover {
+    background-color: #6a26d9;
+  }
+
   .icon {
     margin-top: 1px;
     margin-right: 8px;

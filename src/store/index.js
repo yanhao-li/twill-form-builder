@@ -8,6 +8,7 @@ export default new Vuex.Store({
     formName: 'Form Name',
     fields: [],
     fieldSettingMode: false,
+    showSidebar: true,
   },
   mutations: {
     updateFormName(state, newName) {
@@ -17,16 +18,18 @@ export default new Vuex.Store({
       if (field !== false) {
         this.commit('updateField', field)
       }
-
+      state.showSidebar = true
       state.fieldSettingMode = field
     },
     updateFields(state, newFields) {
-      console.log('store commits - updateFields: ', newFields)
       state.fields = newFields
     },
     // Find and replace a field with the new field data
     updateField(state, newField) {
       state.fields = backtracking(state.fields, newField)
+    },
+    toggleSidebar(state) {
+      state.showSidebar = !state.showSidebar
     },
   },
 })

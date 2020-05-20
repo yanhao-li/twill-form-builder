@@ -251,6 +251,39 @@
         />
       </svg>
     </template>
+    <template v-else-if="name === 'preview'">
+      <svg
+        width="18"
+        height="12"
+        viewBox="0 0 18 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M0 6.00508C0 6.00508 3.65053 0 8.74203 0C13.9138 0 18 6.00508 18 6.00508C18 6.00508 13.9328 12 8.74203 12C3.00948 12 0 6.00508 0 6.00508ZM12.9345 6.00679C12.9345 8.23692 11.1729 10.0448 9.00002 10.0448C6.8271 10.0448 5.0656 8.23692 5.0656 6.00679C5.0656 3.77667 6.8271 1.96879 9.00002 1.96879C11.1729 1.96879 12.9345 3.77667 12.9345 6.00679Z"
+          fill="white"
+        />
+        <path
+          d="M8.95807 8.328C10.2075 8.328 11.2204 7.28847 11.2204 6.00614C11.2204 4.72382 10.2075 3.68429 8.95807 3.68429C7.70864 3.68429 6.69578 4.72382 6.69578 6.00614C6.69578 7.28847 7.70864 8.328 8.95807 8.328Z"
+          fill="white"
+        />
+      </svg>
+    </template>
+    <template v-else-if="name === 'editor'">
+      <svg
+        width="14"
+        height="13"
+        viewBox="0 0 14 13"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M14 9H0V10H14V9Z" fill="white" />
+        <path d="M14 12H0V13H14V12Z" fill="white" />
+        <path d="M14 0H0V7H14V0Z" fill="white" />
+      </svg>
+    </template>
     <template v-else>
       <svg
         width="14"

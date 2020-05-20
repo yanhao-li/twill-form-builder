@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <div class="content">
-      <Sidebar />
+      <Sidebar v-if="showSidebar" />
       <Form />
     </div>
   </div>
@@ -25,6 +25,9 @@ export default {
     formName() {
       return this.$store.state.formName
     },
+    showSidebar() {
+      return this.$store.state.showSidebar
+    }
   },
   watch: {
     formName() {
