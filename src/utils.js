@@ -16,6 +16,10 @@ export const getCurrentUrl = () => {
   return window.location.href
 }
 
+export const getCurrentUrlWithoutQuery = () => {
+  return [location.protocol, '//', location.host, location.pathname].join('')
+}
+
 export const getUrlParam = (name) => {
   const urlParams = new URLSearchParams(window.location.search)
   return urlParams.get(name)

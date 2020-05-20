@@ -14,17 +14,14 @@
       <span>{{ formName }}</span>
     </div>
     <Icon name="edit" />
-    <Button class="reset__btn" @click="onResetClick">Reset</Button>
   </div>
 </template>
 
 <script>
 import Icon from './Icon'
-import { Button } from 'twill-ui'
 export default {
   components: {
     Icon,
-    Button,
   },
   data() {
     return {
@@ -56,9 +53,6 @@ export default {
     },
     onMouseLeave() {
       this.active = this.focusing
-    },
-    onResetClick() {
-      this.$store.commit('updateFields', [])
     },
   },
 }
@@ -102,15 +96,6 @@ export default {
     display: inline-block;
     visibility: hidden;
     position: relative;
-  }
-}
-
-.reset__btn {
-  margin-left: auto;
-  background-color: grey;
-  border: none;
-  &:hover {
-    background-color: grey;
   }
 }
 </style>

@@ -1,32 +1,42 @@
 <template>
-  <ul>
-    <draggable
-      :sort="false"
-      :clone="cloneField"
-      :group="{ name: 'fields', pull: 'clone', put: false }"
-      v-model="availableFields"
-    >
-      <li
-        v-for="field in availableFields"
-        :key="field.default.field"
-        class="available-field-item"
+  <div class="fields__list__container">
+    <ul>
+      <draggable
+        :sort="false"
+        :clone="cloneField"
+        :group="{ name: 'fields', pull: 'clone', put: false }"
+        v-model="availableFields"
       >
-        <div class="icon-container">
-          <Icon :name="field.icon" />
-        </div>
-        <span class="field__label">{{ field.label }}</span>
-      </li>
-    </draggable>
-  </ul>
+        <li
+          v-for="field in availableFields"
+          :key="field.default.field"
+          class="available-field-item"
+        >
+          <div class="icon-container">
+            <Icon :name="field.icon" />
+          </div>
+          <span class="field__label">{{ field.label }}</span>
+        </li>
+      </draggable>
+    </ul>
+    <SidebarFooter
+      button-one-label="New Form"
+      button-two-label="Reset"
+      @button-one-click="onNewFormClick"
+      @button-two-click="onResetClick"
+    />
+  </div>
 </template>
 
 <script>
+import SidebarFooter from './SidebarFooter'
 import draggable from 'vuedraggable'
 import availableFields from '@/availableFields'
 import Icon from './Icon.vue'
 import shortid from 'shortid'
+import { getCurrentUrlWithoutQuery } from '@/utils'
 export default {
-  components: { Icon, draggable },
+  components: { Icon, draggable, SidebarFooter },
   data() {
     return {
       availableFields: availableFields,
@@ -42,21 +52,36 @@ export default {
         }),
       )
     },
+    onNewFormClick() {
+      window.open(getCurrentUrlWithoutQuery(), '_blank')
+    },
+    onResetClick() {
+      this.$store.commit('updateFields', [])
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.fields__list__container {
+  position: relative;
+  width: 300px;
+  height: 100%;
+  overflow-y: hidden;
+}
 ul {
   display: block;
   position: absolute;
   left: 0;
   top: 0;
-  width: 300px;
-  padding: 0 0 100px 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-bottom: 100px;
   margin: 0;
   list-style: none;
   overflow-y: scroll;
+  box-sizing: border-box;
 }
 
 .available-field-item {
