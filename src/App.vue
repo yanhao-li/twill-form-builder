@@ -21,13 +21,29 @@ export default {
     Form,
     Sidebar,
   },
+  computed: {
+    formName() {
+      return this.$store.state.formName
+    },
+  },
+  watch: {
+    formName() {
+      this.updatePageTitle(this.formName)
+    },
+  },
   mounted() {
+    this.updatePageTitle(this.formName)
     const code = getUrlParam('code')
     if (code) {
       const { formName, fields } = JSON.parse(decodeToJSON(code))
       this.$store.commit('updateFormName', formName)
       this.$store.commit('updateFields', fields)
     }
+  },
+  methods: {
+    updatePageTitle(newTitle) {
+      document.title = newTitle + ' - Twill Form Builder'
+    },
   },
 }
 </script>
