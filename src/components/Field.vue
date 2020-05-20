@@ -4,6 +4,7 @@
     :class="{
       'field--container__hovering': hovering,
     }"
+    @click.stop="onClick"
     @mouseover.stop="hovering = true"
     @mouseleave.stop="hovering = false"
   >
@@ -122,6 +123,15 @@ export default {
     },
   },
   methods: {
+    onClick() {
+      const fieldSettingMode = this.$store.state.fieldSettingMode
+      if (
+        !Object.prototype.hasOwnProperty.call(fieldSettingMode, 'id') ||
+        fieldSettingMode.id !== this.id
+      ) {
+        this.$store.commit('setFieldSettingMode', this.data)
+      }
+    },
     onClickDelete() {
       this.$emit('delete', this.data.id)
       this.$store.commit('setFieldSettingMode', false)
