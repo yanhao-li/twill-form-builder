@@ -12,13 +12,14 @@
     <div class="setting__list__footer">
       <Button
         type="primary"
+        @click="exitFieldSettingMode"
         style="flex-grow: 1; margin-right: 12px; background-color: #269e41;"
       >
         Done
       </Button>
       <Button
         type="secondary"
-        @click="exitFieldSettingMode"
+        @click="revertChanges"
         style="flex-grow: 1; background-color: #393939; border: none;"
       >
         Cancel
@@ -37,10 +38,19 @@ export default {
     Button,
     SettingField,
   },
+  data() {
+    return {
+      originalField: this.$store.state.fieldSettingMode,
+    }
+  },
   methods: {
     exitFieldSettingMode() {
       this.$store.commit('setFieldSettingMode', false)
     },
+    revertChanges() {
+      this.$store.commit('setFieldSettingMode', this.originalField)
+      this.exitFieldSettingMode()
+    }
   },
   computed: {
     fieldSettingMode() {
