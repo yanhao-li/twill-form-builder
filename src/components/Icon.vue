@@ -217,6 +217,25 @@
         />
       </svg>
     </template>
+    <template v-else-if="name === 'link'">
+      <svg
+        width="20"
+        height="10"
+        viewBox="0 0 20 10"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 0H12V2H15C16.6542 2 18 3.3457 18 5C18 6.6543 16.6542 8 15 8H12V10H15C17.75 10 20 7.75 20 5C20 2.25 17.75 0 15 0Z"
+          fill="white"
+        />
+        <path
+          d="M2 5C2 3.3457 3.34576 2 5 2H8V0H5C2.25 0 0 2.25 0 5C0 7.75 2.25 10 5 10H8V8H5C3.34576 8 2 6.6543 2 5Z"
+          fill="white"
+        />
+        <path d="M14 4H6V6H14V4Z" fill="white" />
+      </svg>
+    </template>
     <template v-else>
       <svg
         width="14"
