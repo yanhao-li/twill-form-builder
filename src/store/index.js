@@ -21,6 +21,7 @@ export default new Vuex.Store({
       state.fieldSettingMode = field
     },
     updateFields(state, newFields) {
+      console.log('store commits - updateFields: ', newFields)
       state.fields = newFields
     },
     // Find and replace a field with the new field data

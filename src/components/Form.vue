@@ -21,7 +21,7 @@ export default {
         return this.$store.state.fields
       },
       set(fields) {
-        return this.$store.commit('updateFields', fields)
+        this.$store.commit('updateFields', fields)
       },
     },
     form() {
