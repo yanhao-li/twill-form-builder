@@ -24,11 +24,15 @@ export default {
         return this.$store.commit('updateFields', fields)
       },
     },
+    form() {
+      const unwrap = ({ formName, fields }) => ({ formName, fields })
+      return unwrap(this.$store.state)
+    },
   },
   watch: {
     // update url when fields get changed
-    fields(newFields) {
-      updateUrlQuery(encodeFromJSON(newFields))
+    form(newForm) {
+      updateUrlQuery(encodeFromJSON(newForm))
     },
   },
   methods: {},

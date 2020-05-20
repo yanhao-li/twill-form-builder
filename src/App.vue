@@ -24,7 +24,8 @@ export default {
   mounted() {
     const code = getUrlParam('code')
     if (code) {
-      const fields = JSON.parse(decodeToJSON(code))
+      const { formName, fields } = JSON.parse(decodeToJSON(code))
+      this.$store.commit('updateFormName', formName)
       this.$store.commit('updateFields', fields)
     }
   },
