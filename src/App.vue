@@ -27,7 +27,7 @@ export default {
     },
     showSidebar() {
       return this.$store.state.showSidebar
-    }
+    },
   },
   watch: {
     formName() {
