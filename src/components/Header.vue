@@ -25,6 +25,8 @@ export default {
   },
   methods: {
     onClickShare() {
+      const currentURL = window.location.href
+      navigator.clipboard.writeText(currentURL)
       Notification({
         message: 'Link copied to clipboard',
       })
