@@ -1,5 +1,5 @@
 <template>
-  <draggable :value="fields" @input="onUpdate" group="fields" class="droppable">
+  <draggable :list="fields" @input="onUpdate" group="fields">
     <transition-group name="field-list" class="droppable">
       <Field
         v-for="field in fields"
@@ -43,7 +43,6 @@ export default {
         }
         return field
       })
-      console.log('updateField: ', newFields)
       this.$emit('update:fields', newFields)
     },
   },
@@ -63,7 +62,7 @@ export default {
 }
 
 .field-list-leave-active {
-  transition: all 1s;
+  transition: all 0.2s;
 }
 
 .field-list-leave-to {
