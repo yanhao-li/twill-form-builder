@@ -1,15 +1,19 @@
 <template>
   <div id="form">
-    <Droppable :fields.sync="fields" />
+    <FormName />
+    <Droppable :fields.sync="fields" class="form__content" />
   </div>
 </template>
 
 <script>
 import Droppable from './Droppable'
+import FormName from './FormName'
+
 import { encodeFromJSON, updateUrlQuery } from '@/utils'
 export default {
   components: {
     Droppable,
+    FormName,
   },
   computed: {
     fields: {
@@ -35,11 +39,16 @@ export default {
 #form {
   display: flex;
   flex-direction: column;
-  padding: 20px 70px;
   height: 100%;
   flex-grow: 1;
   background-color: #f2f2f2;
   color: #000;
   overflow-y: scroll;
+}
+
+.form__content {
+  padding: 20px 70px;
+  width: 100%;
+  box-sizing: border-box;
 }
 </style>

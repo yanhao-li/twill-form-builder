@@ -5,10 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    formName: 'Form Name',
     fields: [],
     fieldSettingMode: false,
   },
   mutations: {
+    updateFormName(state, newName) {
+      state.formName = newName
+    },
     setFieldSettingMode(state, field) {
       if (field !== false) {
         this.commit('updateField', field)

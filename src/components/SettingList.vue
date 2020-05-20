@@ -50,7 +50,7 @@ export default {
     revertChanges() {
       this.$store.commit('setFieldSettingMode', this.originalField)
       this.exitFieldSettingMode()
-    }
+    },
   },
   computed: {
     fieldSettingMode() {

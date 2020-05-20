@@ -27,7 +27,7 @@ export default {
       const fields = JSON.parse(decodeToJSON(code))
       this.$store.commit('updateFields', fields)
     }
-  }
+  },
 }
 </script>
 

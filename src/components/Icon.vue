@@ -236,6 +236,21 @@
         <path d="M14 4H6V6H14V4Z" fill="white" />
       </svg>
     </template>
+    <template v-else-if="name === 'edit'">
+      <svg
+        width="12"
+        height="12"
+        viewBox="0 0 12 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0 9.52118V12H2.45333L0 9.52118Z" fill="#757575" />
+        <path
+          d="M12 2.33704L3.663 10.7606L1.34998 8.42356L9.687 0L12 2.33704Z"
+          fill="#757575"
+        />
+      </svg>
+    </template>
     <template v-else>
       <svg
         width="14"
