@@ -20,6 +20,7 @@
       </draggable>
     </ul>
     <SidebarFooter
+      :dark="true"
       button-one-label="New Form"
       button-two-label="Reset"
       @button-one-click="onNewFormClick"

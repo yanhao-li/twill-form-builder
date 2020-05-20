@@ -3,14 +3,24 @@
     <Button
       type="primary"
       @click="$emit('button-one-click')"
-      style="flex: 1; margin-right: 12px; background-color: #269e41;"
+      :style="{
+        flex: '1',
+        marginRight: '12px',
+        backgroundColor: dark ? 'transparent' : '#269e41',
+        border: dark ? '1px solid rgba(255, 255, 255, 0.2)' : 'none',
+      }"
     >
       {{ buttonOneLabel }}
     </Button>
     <Button
       type="secondary"
       @click="$emit('button-two-click')"
-      style="flex: 1; background-color: #393939; border: none;"
+      :style="{
+        flex: '1',
+        marginRight: '12px',
+        backgroundColor: dark ? 'transparent' : '#393939',
+        border: dark ? '1px solid rgba(255, 255, 255, 0.2)' : 'none',
+      }"
     >
       {{ buttonTwoLabel }}
     </Button>
@@ -32,7 +42,11 @@ export default {
       type: String,
       required: true,
     },
-  }
+    dark: {
+      type: Boolean,
+      default: false,
+    },
+  },
 }
 </script>
 
