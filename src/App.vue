@@ -12,6 +12,7 @@
 import Header from './components/Header.vue'
 import Form from './components/Form.vue'
 import Sidebar from './components/Sidebar.vue'
+import { decodeToJSON, getUrlParam } from '@/utils'
 
 export default {
   name: 'App',
@@ -20,6 +21,13 @@ export default {
     Form,
     Sidebar,
   },
+  mounted() {
+    const code = getUrlParam('code')
+    if (code) {
+      const fields = JSON.parse(decodeToJSON(code))
+      this.$store.commit('updateFields', fields)
+    }
+  }
 }
 </script>
 

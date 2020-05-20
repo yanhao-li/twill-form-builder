@@ -6,7 +6,7 @@
 
 <script>
 import Droppable from './Droppable'
-import { encodeJSON, updateUrlQuery } from '@/utils'
+import { encodeFromJSON, updateUrlQuery } from '@/utils'
 export default {
   components: {
     Droppable,
@@ -24,7 +24,7 @@ export default {
   watch: {
     // update url when fields get changed
     fields(newFields) {
-      updateUrlQuery(encodeJSON(newFields))
+      updateUrlQuery(encodeFromJSON(newFields))
     },
   },
   methods: {},

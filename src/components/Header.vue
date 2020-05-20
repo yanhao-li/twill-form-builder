@@ -15,6 +15,7 @@
 
 <script>
 import Icon from './Icon'
+import { getCurrentUrl } from '@/utils'
 import { Button } from 'twill-ui'
 import { Notification } from 'twill-ui'
 
@@ -25,8 +26,7 @@ export default {
   },
   methods: {
     onClickShare() {
-      const currentURL = window.location.href
-      navigator.clipboard.writeText(currentURL)
+      navigator.clipboard.writeText(getCurrentUrl())
       Notification({
         message: 'Link copied to clipboard',
       })
