@@ -29,12 +29,12 @@
 
     <!-- Checkbox -->
     <template v-else-if="fieldType === 'checkbox'">
-      <Checkbox v-model="inputValue" label="Checkbox" />
+      <Checkbox v-model="inputValue" :label="data.label" />
     </template>
 
     <!-- Radio -->
     <template v-else-if="fieldType === 'radio'">
-      <Radio v-model="inputValue" label="Male" value="male" />
+      <Radio v-model="inputValue" :label="data.label" :value="data.value" />
     </template>
 
     <!-- WYSIWYG -->
@@ -45,6 +45,11 @@
     <!-- Date Picker -->
     <template v-else-if="fieldType === 'date-picker'">
       <DatePicker placeholder="Select the date" />
+    </template>
+
+    <!-- Selector -->
+    <template v-else-if="fieldType === 'select'">
+      <Select :options="options1" v-model="optionValue" @input="setSelect" />
     </template>
 
     <template v-else> WIP: {{ data.field }} </template>
@@ -71,6 +76,7 @@ import {
   Radio,
   Editor,
   DatePicker,
+  Select,
 } from 'twill-ui'
 
 export default {
@@ -84,6 +90,7 @@ export default {
     Radio,
     Editor,
     DatePicker,
+    Select,
   },
   data() {
     return {

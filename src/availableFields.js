@@ -59,17 +59,29 @@ const availableFields = [
     icon: 'wysiwyg',
     default: {
       field: 'wysiwyg',
-      label: 'Content',
+      label: 'Text',
     },
+    settings: [
+      {
+        type: 'input',
+        label: 'Label',
+        model: 'label',
+      },
+      {
+        type: 'input',
+        label: 'Character count',
+        model: 'maxlength',
+      },
+    ]
   },
-  {
-    label: 'Dropdown',
-    icon: 'dropdown',
-    default: {
-      field: 'dropdown',
-      label: 'Content',
-    },
-  },
+  // {
+  //   label: 'Dropdown',
+  //   icon: 'dropdown',
+  //   default: {
+  //     field: 'dropdown',
+  //     label: 'Content',
+  //   },
+  // },
   {
     label: 'Date Picker',
     icon: 'date-picker',
@@ -83,16 +95,31 @@ const availableFields = [
     icon: 'checkbox',
     default: {
       field: 'checkbox',
-      label: 'Content',
+      label: 'Default Label',
     },
+    settings: [
+      {
+        type: 'input',
+        label: 'Label',
+        model: 'label',
+      }
+    ]
   },
   {
     label: 'Radio',
     icon: 'radio',
     default: {
       field: 'radio',
-      label: 'Content',
+      label: 'Default',
+      value: 'default',
     },
+    settings: [
+      {
+        type: 'input',
+        label: 'Label',
+        model: 'label',
+      },
+    ]
   },
   {
     label: 'Selector',
