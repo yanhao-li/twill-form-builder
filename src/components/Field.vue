@@ -10,46 +10,62 @@
   >
     <!-- Container -->
     <template v-if="fieldType === 'container'">
-      <Container :title="data.label">
+      <t-container :title="data.label">
         <Droppable :fields.sync="children" />
-      </Container>
+      </t-container>
     </template>
 
     <!-- Input -->
     <template v-else-if="fieldType === 'input'">
-      <FormItem :label="data.label" :note="data.note">
-        <Input
+      <t-form-item :label="data.label" :note="data.note">
+        <t-input
           v-model="inputValue"
           :placeholder="data.placeholder"
           :type="data.type ? data.type : 'text'"
           :maxlength="parseInt(data.maxlength)"
         />
-      </FormItem>
+      </t-form-item>
     </template>
 
     <!-- Checkbox -->
     <template v-else-if="fieldType === 'checkbox'">
-      <Checkbox v-model="inputValue" :label="data.label" />
+      <t-checkbox v-model="inputValue" :label="data.label" />
     </template>
 
     <!-- Radio -->
     <template v-else-if="fieldType === 'radio'">
-      <Radio v-model="inputValue" :label="data.label" :value="data.value" />
+      <t-radio v-model="inputValue" :label="data.label" :value="data.value" />
     </template>
 
     <!-- WYSIWYG -->
     <template v-else-if="fieldType === 'wysiwyg'">
-      <Editor :showCounter="false" :edit-source="data.editSource" />
+      <t-editor :showCounter="false" :edit-source="data.editSource" />
     </template>
 
     <!-- Date Picker -->
     <template v-else-if="fieldType === 'date-picker'">
-      <DatePicker placeholder="Select the date" />
+      <t-date-picker placeholder="Select the date" />
     </template>
 
-    <!-- Selector -->
-    <template v-else-if="fieldType === 'select'">
-      <Select :options="options1" v-model="optionValue" @input="setSelect" />
+    <!-- Dropdown -->
+    <template v-else-if="fieldType === 'dropdown'">
+      <t-select :options="dropdownOptions" v-model="dropdownSelected"> </t-select>
+    </template>
+
+    <!-- Repeater -->
+    <template v-else-if="fieldType === 'repeater'">
+      <t-repeater :model="repeaterModel" v-model="repeaterData">
+        <template v-slot="{ repeaterItem }">
+          <t-form-item label="Default Username">
+            <t-input
+              v-model="repeaterItem.username"
+              type="text"
+              placeholder="Optional placeholder text"
+              :maxlength="150"
+            />
+          </t-form-item>
+        </template>
+      </t-repeater>
     </template>
 
     <template v-else> WIP: {{ data.field }} </template>
@@ -77,25 +93,33 @@ import {
   Editor,
   DatePicker,
   Select,
+  Repeater,
 } from 'twill-ui'
 
 export default {
   components: {
     Droppable,
-    Container,
-    Input,
-    FormItem,
+    't-container': Container,
+    't-input': Input,
+    't-form-item': FormItem,
     Icon,
-    Checkbox,
-    Radio,
-    Editor,
-    DatePicker,
-    Select,
+    't-checkbox': Checkbox,
+    't-radio': Radio,
+    't-editor': Editor,
+    't-date-picker': DatePicker,
+    't-select': Select,
+    't-repeater': Repeater,
   },
   data() {
     return {
       inputValue: '',
       hovering: false,
+      dropdownOptions: ['option 1', 'option 2', 'option 3', 'option 4'],
+      dropdownSelected: null,
+      repeaterModel: {
+        username: '',
+      },
+      repeaterData: [],
     }
   },
   props: {
