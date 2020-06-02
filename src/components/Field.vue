@@ -39,7 +39,7 @@
 
     <!-- WYSIWYG -->
     <template v-else-if="fieldType === 'wysiwyg'">
-      <Editor :maxlength="200" :showCounter="false" :edit-source="true" />
+      <Editor :showCounter="false" :edit-source="data.editSource" />
     </template>
 
     <!-- Date Picker -->

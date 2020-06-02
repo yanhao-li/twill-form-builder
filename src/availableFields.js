@@ -60,6 +60,7 @@ const availableFields = [
     default: {
       field: 'wysiwyg',
       label: 'Text',
+      editSource: false,
     },
     settings: [
       {
@@ -68,20 +69,20 @@ const availableFields = [
         model: 'label',
       },
       {
-        type: 'input',
-        label: 'Character count',
-        model: 'maxlength',
+        type: 'checkbox',
+        label: 'Enable Source',
+        model: 'editSource',
       },
-    ]
+    ],
   },
-  // {
-  //   label: 'Dropdown',
-  //   icon: 'dropdown',
-  //   default: {
-  //     field: 'dropdown',
-  //     label: 'Content',
-  //   },
-  // },
+  {
+    label: 'Dropdown',
+    icon: 'dropdown',
+    default: {
+      field: 'dropdown',
+      label: 'Content',
+    },
+  },
   {
     label: 'Date Picker',
     icon: 'date-picker',
@@ -102,8 +103,8 @@ const availableFields = [
         type: 'input',
         label: 'Label',
         model: 'label',
-      }
-    ]
+      },
+    ],
   },
   {
     label: 'Radio',
@@ -119,7 +120,7 @@ const availableFields = [
         label: 'Label',
         model: 'label',
       },
-    ]
+    ],
   },
   {
     label: 'Selector',

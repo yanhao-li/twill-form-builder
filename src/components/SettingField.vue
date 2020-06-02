@@ -5,15 +5,19 @@
         <Input v-model="value" />
       </FormItem>
     </template>
+    <template v-if="type === 'checkbox'">
+      <Checkbox :label="label" v-model="value" />
+    </template>
   </div>
 </template>
 
 <script>
-import { FormItem, Input } from 'twill-ui'
+import { FormItem, Input, Checkbox } from 'twill-ui'
 export default {
   components: {
     FormItem,
     Input,
+    Checkbox,
   },
   props: {
     field: {
@@ -57,11 +61,22 @@ export default {
       color: #fff;
       font-size: 15px;
     }
+
     .input__field {
       background-color: #222222;
       border: 1px solid #4e4e4e;
       input {
         color: #fff;
+      }
+    }
+
+    .checkbox {
+      margin-top: 20px;
+      .checkbox__label {
+        color: #fff;
+        &:focus {
+          color: #fff;
+        }
       }
     }
   }
