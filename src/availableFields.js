@@ -80,17 +80,24 @@ const availableFields = [
     icon: 'dropdown',
     default: {
       field: 'dropdown',
-      label: 'Content',
+      label: 'Select',
     },
+    settings: [
+      {
+        type: 'input',
+        label: 'Label',
+        model: 'label',
+      },
+    ],
   },
-  {
-    label: 'Date Picker',
-    icon: 'date-picker',
-    default: {
-      field: 'date-picker',
-      label: 'Content',
-    },
-  },
+  // {
+  //   label: 'Date Picker',
+  //   icon: 'date-picker',
+  //   default: {
+  //     field: 'date-picker',
+  //     label: 'Content',
+  //   },
+  // },
   {
     label: 'Checkbox',
     icon: 'checkbox',
@@ -122,22 +129,22 @@ const availableFields = [
       },
     ],
   },
-  {
-    label: 'Selector',
-    icon: 'selector',
-    default: {
-      field: 'select',
-      label: 'Content',
-    },
-  },
-  {
-    label: 'Browser',
-    icon: 'browser',
-    default: {
-      field: 'browser',
-      label: 'Content',
-    },
-  },
+  // {
+  //   label: 'Selector',
+  //   icon: 'selector',
+  //   default: {
+  //     field: 'select',
+  //     label: 'Select',
+  //   },
+  // },
+  // {
+  //   label: 'Browser',
+  //   icon: 'browser',
+  //   default: {
+  //     field: 'browser',
+  //     label: 'Content',
+  //   },
+  // },
   {
     label: 'Repeater',
     icon: 'repeater',
@@ -151,16 +158,30 @@ const availableFields = [
     icon: 'media-library',
     default: {
       field: 'media-library',
-      label: 'Content',
+      label: 'Image',
     },
+    settings: [
+      {
+        type: 'input',
+        label: 'Label',
+        model: 'label',
+      },
+    ],
   },
   {
     label: 'File Library',
     icon: 'file-library',
     default: {
       field: 'file-library',
-      label: 'Content',
+      label: 'File',
     },
+    settings: [
+      {
+        type: 'input',
+        label: 'Label',
+        model: 'label',
+      },
+    ],
   },
 ]
 

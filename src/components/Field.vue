@@ -39,24 +39,29 @@
 
     <!-- WYSIWYG -->
     <template v-else-if="fieldType === 'wysiwyg'">
-      <t-editor :showCounter="false" :edit-source="data.editSource" />
+      <t-form-item :label="data.label">
+        <t-editor :showCounter="false" :edit-source="data.editSource" />
+      </t-form-item>
     </template>
 
     <!-- Date Picker -->
     <template v-else-if="fieldType === 'date-picker'">
-      <t-date-picker placeholder="Select the date" />
+      <t-datepicker placeholder="Select the date" />
     </template>
 
     <!-- Dropdown -->
     <template v-else-if="fieldType === 'dropdown'">
-      <t-select :options="dropdownOptions" v-model="dropdownSelected"> </t-select>
+      <t-form-item :label="data.label">
+        <t-select :options="dropdownOptions" v-model="dropdownSelected">
+        </t-select>
+      </t-form-item>
     </template>
 
     <!-- Repeater -->
     <template v-else-if="fieldType === 'repeater'">
       <t-repeater :model="repeaterModel" v-model="repeaterData">
         <template v-slot="{ repeaterItem }">
-          <t-form-item label="Default Username">
+          <t-form-item label="Example Input">
             <t-input
               v-model="repeaterItem.username"
               type="text"
@@ -66,6 +71,30 @@
           </t-form-item>
         </template>
       </t-repeater>
+    </template>
+
+    <!-- Media/File Library -->
+    <template
+      v-else-if="fieldType === 'media-library' || fieldType === 'file-library'"
+    >
+      <t-form-item :label="data.label">
+        <div
+          style="
+            border: 1px solid #e5e5e5;
+            padding: 8px;
+            background-color: #fff;
+          "
+        >
+          <t-button
+            type="ghost"
+            :round="true"
+            style="border-color: #e5e5e5;"
+            size="small"
+          >
+            Attach
+          </t-button>
+        </div>
+      </t-form-item>
     </template>
 
     <template v-else> WIP: {{ data.field }} </template>
@@ -85,6 +114,7 @@
 import Icon from './Icon'
 import Droppable from './Droppable'
 import {
+  Button,
   Container,
   FormItem,
   Input,
@@ -99,6 +129,7 @@ import {
 export default {
   components: {
     Droppable,
+    't-button': Button,
     't-container': Container,
     't-input': Input,
     't-form-item': FormItem,
@@ -106,7 +137,7 @@ export default {
     't-checkbox': Checkbox,
     't-radio': Radio,
     't-editor': Editor,
-    't-date-picker': DatePicker,
+    't-datepicker': DatePicker,
     't-select': Select,
     't-repeater': Repeater,
   },

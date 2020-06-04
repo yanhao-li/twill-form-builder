@@ -62,6 +62,7 @@ export default {
 .form__name__container {
   display: flex;
   height: 70px;
+  min-height: 70px;
   border-bottom: 1px solid #e5e5e5;
   align-items: center;
   padding: 0 20px;
