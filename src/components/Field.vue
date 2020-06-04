@@ -10,7 +10,11 @@
   >
     <!-- Container -->
     <template v-if="fieldType === 'container'">
-      <t-container :title="data.label">
+      <t-container
+        :title="data.label"
+        :collapsed="Containercollapsed"
+        @click:header="Containercollapsed = !Containercollapsed"
+      >
         <Droppable :fields.sync="children" />
       </t-container>
     </template>
@@ -147,6 +151,7 @@ export default {
       hovering: false,
       dropdownOptions: ['option 1', 'option 2', 'option 3', 'option 4'],
       dropdownSelected: null,
+      Containercollapsed: false,
       repeaterModel: {
         username: '',
       },
