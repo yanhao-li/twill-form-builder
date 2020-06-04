@@ -53,7 +53,7 @@ export default {
 .form__content {
   padding: 20px 70px;
   width: 100%;
-  height: 100%;
+  padding-bottom: 200px;
   box-sizing: border-box;
 }
 </style>

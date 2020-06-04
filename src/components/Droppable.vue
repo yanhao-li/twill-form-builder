@@ -52,7 +52,6 @@ export default {
 <style lang="scss" scoped>
 .droppable {
   display: block;
-  height: 100%;
   min-height: 100px;
   width: 100%;
 }
