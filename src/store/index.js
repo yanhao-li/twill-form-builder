@@ -31,6 +31,10 @@ export default new Vuex.Store({
     toggleSidebar(state) {
       state.showSidebar = !state.showSidebar
     },
+    reset(state) {
+      state.formName = 'Form Name'
+      state.fields = []
+    }
   },
 })
 

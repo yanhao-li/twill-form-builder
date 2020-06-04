@@ -57,7 +57,7 @@ export default {
       window.open(getCurrentUrlWithoutQuery(), '_blank')
     },
     onResetClick() {
-      this.$store.commit('updateFields', [])
+      this.$store.commit('reset')
     },
   },
 }
